@@ -1,0 +1,23 @@
+:root{
+  --primary-color:#a8d8ea;
+  --secondary-color:#aa96da;
+  --pink-cupid: #fcbad3;
+  --cream: #ffffd2;
+}
+
+@font-face {
+  font-family: PressStart;
+  src: url('./Fonts/PressStart2P-Regular.ttf');
+}
+
+html, body{
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  box-sizing: border-box;
+  background-color: var(--primary-color);
+  font-family: PressStart;
+}
+
+
