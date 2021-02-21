@@ -44,8 +44,8 @@ type GameItemStyle = {
 }
 
 const GameItemBase = styled.div<GameItemStyle>`
-    width: 35%;
-    height: 230px;
+    width: 30%;
+    height: 180px;
     background-color:${({ backgroundColor }) => backgroundColor};
     border-radius:${({ borderRadius }) => borderRadius};
     /*border: 5px solid black;*/
@@ -53,6 +53,8 @@ const GameItemBase = styled.div<GameItemStyle>`
     transform:scale(${({ applyEffects }) => applyEffects ? 1.08 : 1});
     transition: all .2s ease-in-out;
     z-index: ${({ applyEffects }) => applyEffects ? 2 : 1};
+
+   
 
     ${({ activateHover }) => activateHover &&
         css`
@@ -62,10 +64,41 @@ const GameItemBase = styled.div<GameItemStyle>`
         z-index: 2;         
     };  
     `
+    } 
 
+    @media(max-width: 500px){
+        width: 40%;
+        height: 160px;
     }
-     
+
+    @media(max-width: 380px){
+        width: 50%;
+        height: 150px;
+    }
 `;
+
+/**
+ *  @media(max-width: 422px){
+        width: 80%;
+        height: 160px;
+    }
+
+    @media(max-width: 850px){
+        width: 50%;
+        height: 160px;
+    }
+
+    @media(max-width: 1024px){
+        width: 30%;
+        height: 180px;
+    }  
+
+    @media(max-width: 430px){
+        width: 85%;
+        height: 160px;
+    }
+ * 
+ */
 
 type Props = {
     side: Sides,

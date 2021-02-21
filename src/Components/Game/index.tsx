@@ -13,12 +13,39 @@ const GameContainer = styled.div`
     padding: 20px;
 `;
 
-const GameWrapper = styled.div`
+type GameWrapperProps = {
+    isTheTopItem:boolean;
+}
+
+const GameWrapper = styled.div<GameWrapperProps>`
+    width: 50%;
     display:flex;   
     flex-direction:row;
-    width: 50%;
     justify-content:center;
     align-items:center;
+
+    display: flex;
+    align-items: ${({isTheTopItem})=> isTheTopItem ? 'flex-end' : 'flex-start'};
+
+    @media(max-width: 1120px){
+        width: 60%;
+    }
+
+    @media(max-width: 1025px){
+        width: 70%;
+    }
+
+    @media(max-width: 850px){
+        width: 80%;
+    }
+
+    @media(max-width: 690px){
+        width: 90%;
+    }
+
+    @media(max-width: 620px){
+        width: 100%;
+    }
 `;
 
 const ModalBody = styled.div`
@@ -30,6 +57,14 @@ const ModalBody = styled.div`
     > p {
         padding: 20px
     }
+`;
+
+const GameStatusContainer = styled.div`
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    margin: 10px;
 `;
 
 type ModalButtonProps = {
@@ -190,7 +225,7 @@ function Game() {
     return (
         <>
             <GameContainer>
-                <GameWrapper>
+                <GameWrapper isTheTopItem={true}>
                     <GameItem
                         onGameItemClick={gameItemClick}
                         gameState={{
@@ -208,7 +243,7 @@ function Game() {
                         }}
                         side={Sides.TOP_RIGHT} />
                 </GameWrapper>
-                <GameWrapper>
+                <GameWrapper isTheTopItem={false}>
                     <GameItem
                         onGameItemClick={gameItemClick}
                         gameState={{
@@ -226,10 +261,13 @@ function Game() {
                         }}
                         side={Sides.BOTTOM_RIGHT} />
                 </GameWrapper>
+
+            </GameContainer>
+            <GameStatusContainer>
                 <h1>
                     {gameStatus()}
                 </h1>
-            </GameContainer>
+            </GameStatusContainer>
             <GameOptions
                 isPlaying={isPlaying}
                 onGameStateClick={() => {
@@ -239,7 +277,7 @@ function Game() {
 
             <Modal
                 show={showModal}
-                color="168, 216,234,.8"
+                color="168,216,234,.8"
                 title={sequenceStatus === SequenceStatus.SUCCESS ? 'Parabéns!!!' : 'Ops...'}
                 headerStyle={{
                     backgroundColor:

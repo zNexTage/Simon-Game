@@ -5,6 +5,11 @@ const ModalContentBase = styled.div`
     background-color:white;
     width: 50%;
     border-radius: 10px;
+
+    @media(max-width: 500px){
+        width: 100%;
+        margin: 10px;
+    }
 `
 
 type Props = {
