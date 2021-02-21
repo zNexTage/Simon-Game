@@ -10,7 +10,7 @@ const GameContainer = styled.div`
     flex-direction:column;    
     justify-content:center;
     align-items:center;
-    padding: 20px;
+    padding: 10px;
 `;
 
 type GameWrapperProps = {
@@ -64,7 +64,7 @@ const GameStatusContainer = styled.div`
     justify-content:center;
     align-items:center;
     text-align:center;
-    margin: 10px;
+    padding: 10px;
 `;
 
 type ModalButtonProps = {
@@ -210,7 +210,7 @@ function Game() {
     const gameStatus = () => {
         if (isPlaying) {
             if (isShowSequence) {
-                return "Preste atenção na sequência...";
+                return "Se liga na sequência...";
             } else if (points === 0) {
                 return "Sua vez...";
             } else {
@@ -264,9 +264,9 @@ function Game() {
 
             </GameContainer>
             <GameStatusContainer>
-                <h1>
+                <h2>
                     {gameStatus()}
-                </h1>
+                </h2>
             </GameStatusContainer>
             <GameOptions
                 isPlaying={isPlaying}
@@ -278,7 +278,7 @@ function Game() {
             <Modal
                 show={showModal}
                 color="168,216,234,.8"
-                title={sequenceStatus === SequenceStatus.SUCCESS ? 'Parabéns!!!' : 'Ops...'}
+                title={sequenceStatus === SequenceStatus.SUCCESS ? 'Parabéns!' : 'Ops...'}
                 headerStyle={{
                     backgroundColor:
                         sequenceStatus === SequenceStatus.SUCCESS ? '#17b978' : '#BA3116'
