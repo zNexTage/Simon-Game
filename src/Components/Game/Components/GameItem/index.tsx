@@ -71,7 +71,7 @@ const GameItemBase = styled.div<GameItemStyle>`
         height: 160px;
     }
 
-    @media(max-width: 380px){
+    @media(max-width: 343px){
         width: 50%;
         height: 150px;
     }
