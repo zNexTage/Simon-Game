@@ -1,4 +1,6 @@
-# Getting Started with Create React App
+# Simon Game
+
+Simon Game or [Genius](https://pt.wikipedia.org/wiki/Genius_(jogo)) made with React.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
